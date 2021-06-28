@@ -32,7 +32,7 @@ class Register extends Component {
     onSubmitRegister = () => {
         const {registerName, registerEmail, registerPassword} = this.state;
         if(registerName && registerEmail && registerPassword){
-            fetch('http://localhost:4000/register', {
+            fetch(`${this.props.port}/register`, { 
                 method: 'post', 
                 headers: {'Content-Type':'application/json'},
                 body:JSON.stringify({

@@ -18,6 +18,7 @@ const app = new Clarifai.App({
 class App extends Component {
   constructor(){
     super();
+    this.port = 'https://protected-stream-63984.herokuapp.com';
     this.state = {
       input:'',
       hasBorder: true,
@@ -78,7 +79,7 @@ class App extends Component {
     // console.log(this.state.input);
     app.models.predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
     .then(data => {
-        fetch('http://localhost:4000/image', {
+        fetch(`${this.port}/image`, {
           method:'put',
           headers:{'Content-Type': 'application/json'},
           body:JSON.stringify({
@@ -133,9 +134,9 @@ class App extends Component {
           (
             route === 'signin'
             ?  
-            <SignIn routeChange = {this.onRouteChange} laodUser = {this.onLoadUser}/>
+            <SignIn port = {this.port} routeChange = {this.onRouteChange} laodUser = {this.onLoadUser}/>
             :
-            <Register routeChange = {this.onRouteChange} laodUser = {this.onLoadUser}/>
+            <Register port = {this.port} routeChange = {this.onRouteChange} laodUser = {this.onLoadUser}/>
           )
         }
       </div>

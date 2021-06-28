@@ -23,9 +23,9 @@ class SignIn extends Component  {
         this.setState({signInPassword:event.target.value});
     }
 
-        onSubmitSignIn = () => {
+    onSubmitSignIn = () => {
         const {signInEmail, signInPassword} = this.state;
-        fetch('http://localhost:4000/signin', {
+        fetch(`${this.props.port}/signin`, {
             method: 'post',
             headers:{'Content-Type': 'application/json'},
             body: JSON.stringify({
