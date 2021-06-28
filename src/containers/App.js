@@ -14,6 +14,7 @@ const app = new Clarifai.App({
   apiKey: '5213ebb3b8e5468c8593354e351585b1'
  });
 
+
 class App extends Component {
   constructor(){
     super();
