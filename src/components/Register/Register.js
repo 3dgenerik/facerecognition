@@ -33,7 +33,7 @@ class Register extends Component {
         const {registerName, registerEmail, registerPassword} = this.state;
         if(registerName && registerEmail && registerPassword){
             fetch(`${this.props.port}/register`, { 
-                method: 'post', 
+                method: 'post',  
                 headers: {'Content-Type':'application/json'},
                 body:JSON.stringify({
                     name:registerName,
